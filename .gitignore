@@ -1,0 +1,9 @@
+# Ignore everything
+*.exe
+
+# Allow only cpp files
+!*.cpp
+!.gitignore
+
+# Ignore exe files
+*.exe
