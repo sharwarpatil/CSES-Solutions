@@ -10,21 +10,26 @@
     {
         ios::sync_with_stdio(false), cin.tie(0);
         
-        int n;
-        cin >> n;   
+        int n,t;
+        cin >> n>>t;   
         vector<int> a(n);  
-        ll ans =0; 
+        ll sum =0;
+        int l=0,r=0; 
         for(int &i:a) {
             cin>>i;
-            ans+=i;
         }
-        sort(a.begin(),a.end());
-        if(a[n-1]*2>ans){
-            cout<<a[n-1]*2;
-        }else{
-            cout<<ans;
+        int ans =0;
+        while(r<n){
+            sum+=a[r];
+            while(sum>t){
+                sum-=a[l];
+                l++;
+            }
+            if(sum==t) ans++;
+                
+            r++;
         }
-        
+        cout<<ans;
         return 0;
     }
 
